@@ -5,52 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autism learning hub</title>
     <link rel="stylesheet" href="stylenew.css">
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
 <body>
-    <nav id="navbar" class="background">
+    <nav id="navbar" class="navbar">
         <div id="logo">
             <img src="logo.jpg" alt="Autism Learning Hub" >
         </div>
 
-        <ul>
+        <ul class="nav-list">
             <li class="item"><a href="#home">Home</a></li>
             <li class="item"><a href="learningactivity.html">Learning Activities</a></li>
             <li class="item"><a href="games.html">Games</a></li>
             <li class="item"><a href="Blog_page.html">Blogs</a></li>
             <li class="item"><a href="#contact">Contact Us</a></li>
             <li class="item"><a href="#aboutus">About Us</a></li>
-            <!-- <li class="item"><a href="donate.html">Donate</a></li> -->
             <li class="item"><a href="speech.html">Speech Recognition</a></li>
         </ul>
            
     </nav>
 
-<section class="background firstsection">
-    <div class="box-main">
-        <div class="firsthalf">
-            <!-- <p class="textbig"> Welcome to Autism Learning Hub</p> -->
-        </div>
-    </div>
-</section>
-
     <section id="home">
         <h1 class="head">Welcome to Autism Learning Hub</h1>
         <p>The Future Of Autism is here...</p>
-        <!-- <button class="btn"><a href="Registration.html">Get Started</a></button> -->
     </section>
 
     <section class="aboutautism">
         <h1 class="h-primary aboutautism">Learning About Autism</h1>
-        <div id="about" class="flex-container">
-            <div class="box">
-                <video width="640" height="360" controls>
+        <div id="about" class="about-autism-container">
+            <div class="about-autism-video-wrapper">
+                <video controls class="about-autism-video">
                     <source src="autism.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="box">
+            <div class="about-autism-description">
                 <p>Autism children have communication difficulties, narrow interests, repetitive behavior, and sometimes sensory issues. Autism is a brain-based condition.</p>
                 <button class="btn">Learn more</button>
             </div>
@@ -60,29 +50,37 @@
     <section class="help-section">
         <h2 class="h-primary">We're Here To Help You Navigate Autism</h2>
         <div class="help-item">
-            <img src="child.jpg" alt="Image 1">
+            <div class="help-image-container">
+                <img src="child.jpg" alt="Image 1" class="help-image">
+            </div>
             <div class="help-content">
-                <h3>Understanding Autism in Children</h3>
-                <p>An introduction and overview of autism, looking at topics such as causes, gender differences and co-occurring conditions. 
-                    There is a lot to know about autism. Here is a simple introduction to the spectrum. Take a breath and start here.</p>
+                <div>
+                    <h3 class="help-content-title">Understanding Autism in Children</h3>
+                    <p class="help-content-main">An introduction and overview of autism, looking at topics such as causes, gender differences and co-occurring conditions. 
+                        There is a lot to know about autism. Here is a simple introduction to the spectrum. Take a breath and start here.</p>
+                </div>
                     <button class="btn">Learn more</button>
             </div>
         </div>
         <div class="help-item">
-            <!-- <img src="adult.jpg" alt="Image 2"> -->
             <div class="help-content">
-                <h3>Understanding Autism in Adults</h3>
-                <p>Pursuing an autism diagnosis is a great first step toward understanding yourself and getting the support you need. 
-                    In this section, we will explore how to best get a diagnosis and discuss the feelings and issues that often arise during this period.</p>
+                <div>
+                    <h3 class="help-content-title">Understanding Autism in Adults</h3>
+                    <p class="help-content-main">An introduction and overview of autism, looking at topics such as causes, gender differences and co-occurring conditions. 
+                        <p class="help-content-main">Pursuing an autism diagnosis is a great first step toward understanding yourself and getting the support you need. 
+                        In this section, we will explore how to best get a diagnosis and discuss the feelings and issues that often arise during this period.</p>
+                </div>
                     <button class="btn">Learn more</button>
             </div>
-            <img src="adult.jpg" alt="Image 2">
+            <div class="help-image-container">
+                <img src="adult.jpg" alt="Image 2" class="help-image">
+            </div>
         </div>
     </section>
     
 
 <!-- Contact Us -->
-    <section id="contact">
+    <section id="contact" class="contact-section">
         <h1 class="h-primary">Contact Us</h1>
         <div id="contact-box">
             <form action="">
