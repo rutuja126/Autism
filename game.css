@@ -1,0 +1,138 @@
+/* CSS Reset */
+
+*{
+    margin: 0;
+    padding: 0;
+    /* background: aquamarine; */
+}
+
+/* CSS variables */
+:root{
+    --navbar-height: 59px;
+}
+
+/* Navigation Bar */
+#navbar{
+    display: flex;
+    align-items: center;
+    background-color:  rgb(51, 175, 165);
+}
+
+/* #navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+} */
+
+
+/* Style the logo image */
+
+#logo{
+    margin: 5px 24px;
+}
+#logo img{
+    width: 200px; /* Adjust the width to your desired size */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+/* Home Section */
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    height: 690px;
+    justify-content: center;
+    align-items: center;
+}
+
+#home::before{
+    content: "";
+    position: absolute;
+    background: url('bg1.webp') no-repeat center/cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+}
+
+#home h1{
+    color: black;
+    text-align: center;
+}
+
+/* game container */
+#games{
+    margin: 34px;
+    display: flex;
+}
+
+#games .box{
+    padding: 20px;
+    margin: 3px 6px;
+    border-radius: 28px;
+    background: rgb(253, 253, 253);
+}
+
+#games .box img{
+    height: 450px;
+    cursor: pointer;
+}
+
+#games .box p{
+    text-align: center;
+    font-size: 25px;
+}
+
+#game-modal {
+    display: none; /* Hide the modal by default */
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 9999; /* Ensure the modal is on top of other content */
+}
+
+#game-iframe {
+    position: absolute; /* Position the iframe within the modal */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    border: none; /* Remove iframe border */
+}
+
+
+
+/* utility classes */
+.h-primary{
+    font-size: 2.8rem;
+    padding: 12px;
+    text-align: center;
+    background-color:  rgb(51, 175, 165);
+}
+
+.h-secondary{
+    font-size: 2rem;
+    padding: 12px;
+    text-align: center;
+}
+
+.btn{
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: magenta;
+    color: white;
+    margin: 17px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+

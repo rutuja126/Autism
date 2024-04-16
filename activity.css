@@ -1,0 +1,190 @@
+/* CSS Reset */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS variables */
+:root{
+    --navbar-height: 59px;
+}
+
+
+
+
+/* Navigation Bar */
+#navbar{
+    display: flex;
+    align-items: center;
+    background-color:  rgb(51, 175, 165);
+}
+
+
+/* Style the logo image */
+
+#logo{
+    margin: 10px 34px;
+}
+#logo img{
+    width: 200px; /* Adjust the width to your desired size */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+/* Home Section */
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    height: 690px;
+    justify-content: center;
+    align-items: center;
+}
+
+#home::before{
+    content: "";
+    position: absolute;
+    background: url('bg1.webp') no-repeat center/cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+}
+
+#home h1{
+    color: black;
+    text-align: center;
+}
+
+/* Add this CSS to your stylesheet */
+.btn {
+    display: inline-block;
+    padding: 24px 24px; /* Adjust the padding values as needed */
+    font-size: 18px; /* Adjust the font size as needed */
+    background-color: #3498db; /* Change the background color as desired */
+    color: #fff; /* Change the text color as desired */
+    border: none;
+    border-radius: 5px; /* Adjust the border radius as needed */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9; /* Change the hover color as desired */
+}
+
+
+/* Learning about autism*/
+/* Add CSS to create a two-column layout */
+.flex-container {
+    display: flex;
+    justify-content: space-between; /* Space items evenly horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+/* Style for each box (image and paragraph) */
+.box {
+    flex: 1; /* Distribute available space equally between the two boxes */
+    padding: 10px; /* Add some padding for spacing */
+    text-align: center; /* Center the content horizontally */
+}
+
+
+/* Contact Section */
+#contact{
+    position: relative;
+}
+
+#contact::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+
+}
+
+/* Stories */
+
+#story{
+    margin: 34px;
+    display: flex;
+}
+
+#story .box{
+    border: 2px solid brown;
+    padding: 54px;
+    margin: 3px 6px;
+    border-radius: 28px;
+    background: rgb(253, 253, 253);
+}
+
+#story .box video{
+    height: 250;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+.story-container {
+    text-align: center;
+    padding: 20px;
+    background-color: aquamarine;
+}
+
+/* Learning Videos */
+#vdo{
+    margin: 34px;
+    display: flex;
+}
+
+#vdo .box{
+    border: 2px solid brown;
+    padding: 54px;
+    margin: 3px 6px;
+    border-radius: 28px;
+    background: rgb(253, 253, 253);
+}
+
+#vdo .box video{
+    height: 250;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+.vdo-container {
+    text-align: center;
+    padding: 20px;
+    background-color: aquamarine;
+}
+
+
+
+/* utility classes */
+.h-primary{
+    font-size: 2.8rem;
+    padding: 12px;
+    text-align: center;
+    background-color: rgb(51, 175, 165);
+}
+
+.btn{
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: magenta;
+    color: white;
+    margin: 17px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+

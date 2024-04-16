@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Recognition</title>
+    <link rel="stylesheet" href="speech.css">
+</head>
+<body>
+    <h1>Speech Recognition</h1>
+    <button id="start-recognition">Start Speech Recognition</button>
+    <p id="search-result"></p>
+    <p id="error-message" style="display: none;">Speech recognition is not supported in your browser.</p>
+    <p id="feedback">
+    <!-- Optional: Text-to-Speech -->
+    <textarea id="text-to-read" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+    <button onclick="speakText()">Speak</button>
+
+    <script>
+        // Speech Recognition
+        const startRecognitionButton = document.getElementById('start-recognition');
+        const searchResult = document.getElementById('search-result');
+        const errorMessage = document.getElementById('error-message');
+        const feedbackElement = document.getElementById('feedback'); // Reference to feedback element
+        // Check if Speech Recognition is supported
+        if ('webkitSpeechRecognition' in window) {
+            const recognition = new webkitSpeechRecognition();
+
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = function() {
+                searchResult.textContent = '';
+            };
+
+            recognition.onerror = function(event) {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = 'Error occurred in recognition: ' + event.error;
+            };
+
+            recognition.onresult = function(event) {
+                let interimTranscript = '';
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        searchResult.textContent = event.results[i][0].transcript;
+                    } else {
+                        interimTranscript += event.results[i][0].transcript;
+                    }
+                }
+            };
+
+            startRecognitionButton.addEventListener('click', function() {
+                recognition.start();
+                errorMessage.style.display = 'none';
+            });
+        } else {
+            errorMessage.style.display = 'block';
+            errorMessage.textContent = 'Speech recognition is not supported in your browser.';
+        }
+
+        // Function to handle speech input
+        function handleSpeechInput(transcript) {
+            const expectedWords = ['apple', 'banana', 'orange']; // Example list of expected words
+
+            // Check if the spoken word matches any of the expected words
+            if (expectedWords.includes(transcript)) {
+                showFeedback('Correct!'); // Provide positive feedback
+            } else {
+                showFeedback('Try again.'); // Provide corrective feedback
+            }
+        }
+
+        // Function to display feedback
+        function showFeedback(message) {
+            const feedbackElement = document.getElementById('feedback');
+            feedbackElement.textContent = message;
+        }
+
+        // Optional: Text-to-Speech
+        function speakText() {
+            const textToRead = document.getElementById('text-to-read').value;
+            const utterance = new SpeechSynthesisUtterance(textToRead);
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>

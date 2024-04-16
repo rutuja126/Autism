@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.jpg" alt="Autism Learning Hub" >
+        </div>
+        <h1>Engage your children with interactive and fun games</h1>
+
+    </nav>
+
+    <!-- <section id="home">
+        <h1 class="h-primary">Free Games for Kids</h1>
+        <p></p>
+    </section> -->
+    <!-- Add this iframe and modal code to your HTML -->
+<div id="game-modal" class="modal">
+    <span class="close" onclick="document.getElementById('game-modal').style.display = 'none';">&times;</span>
+    <iframe id="game-iframe" class="iframe"></iframe>
+</div>
+
+
+    <section class="game-container">
+        <h1 class="h-primary center">Free Autism Learning Games</h1>
+            <div id="games">
+                <div class="box" onclick="openGame('https://www.autistichub.com/play/letterwriting/index.html')">
+                    <img src="game1.png" alt="">
+                    <h2 class="h-secondary center">Writing Alphabet Game</h2>
+                    <p class="center">Interactive way to learn how to write and trace alphabet letters A to Z.</p>
+                </div>
+            
+                <div class="box" onclick="openGame('https://www.autistichub.com/play/numberwriting/index.html')">
+                    <img src="game2.png" alt="">
+                    <h2 class="h-secondary center">Number Writing Game</h2>
+                    <p class="center">This interactive game helps you to learn how to write numbers 1 to 10.</p>
+                </div>
+            
+                <div class="box" onclick="openGame('https://www.autistichub.com/play/animalcoloring/index.html')">
+                    <img src="game3.png" alt="">
+                    <h2 class="h-secondary center">Animal Coloring Game</h2>
+                    <p class="center">This is the fun game of coloring animals.</p>
+                </div>
+            </div>
+
+
+            <div id="games">
+
+                <div class="box" onclick="openGame('https://www.autistichub.com/play/jigsawpuzzlev2/index.html')">
+                    <img src="game4.png" alt="">
+                    <h2 class="h-secondary center">Jigsaw Puzzle Game</h2>
+                    <p class="center">Interactive Online Jigsaw Puzzle Game</p>
+                </div>
+
+                <div class="box" onclick="openGame('https://www.autistichub.com/play/fishcoloringbook/index.html')">
+                    <img src="game5.png" alt="">
+                    <h2 class="h-secondary center">Online Coloring Game</h2>
+                    <p class="center">Interative online coloring game</p>
+                </div>
+
+                <div class="box" onclick="openGame('https://www.autistichub.com/play/wordsmatching/index.html')">
+                    <img src="game6.png" alt="">
+                    <h2 class="h-secondary center">Word Matching Game</h2>
+                    <p class="center">Match the words with corresponding picture.</p>
+                </div>
+
+            </div>
+
+    </section>
+
+    <script>
+        function openGame(gameUrl) {
+            // Open a new window in full screen
+            var newWindow = window.open(gameUrl, '_blank');
+            newWindow.moveTo(0, 0);
+            newWindow.resizeTo(screen.availWidth, screen.availHeight);
+        }
+
+        function openGame(url) {
+            // Get the iframe element
+            var iframe = document.getElementById('game-iframe');
+        
+            // Set the src attribute of the iframe to the game URL
+            iframe.src = url;
+        
+            // Show the iframe modal
+            document.getElementById('game-modal').style.display = 'block';
+        }
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+// Importing required libraries
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Bar } from 'react-chartjs-2';
+
+// Creating a functional component
+function Dashboard() {
+  // Setting up state variables
+  const [data, setData] = useState([]);
+  const [year, setYear] = useState(2024);
+  const [topics, setTopics] = useState([]);
+  const [sector, setSector] = useState([]);
+  const [region, setRegion] = useState([]);
+  const [pest, setPest] = useState([]);
+  const [source, setSource] = useState([]);
+  const [swot, setSwot] = useState([]);
+  const [country, setCountry] = useState([]);
+  const [city, setCity] = useState([]);
+
+  // Fetching data from MongoDB database
+  useEffect(() => {
+    axios.get('/api/data')
+      .then(res => setData(res.data))
+      .catch(err => console.log(err));
+  }, []);
+
+  // Filtering data based on user input
+  const filteredData = data.filter(item => {
+    return item.Year <= year &&
+      topics.includes(item.Topics) &&
+      sector.includes(item.Sector) &&
+      region.includes(item.Region) &&
+      pest.includes(item.PEST) &&
+      source.includes(item.Source) &&
+      swot.includes(item.SWOT) &&
+      country.includes(item.Country) &&
+      city.includes(item.City);
+  });
+
+  // Creating chart data
+  const chartData = {
+    labels: filteredData.map(item => item.Year),
+    datasets: [
+      {
+        label: 'Intensity',
+        data: filteredData.map(item => item.Intensity),
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Likelihood',
+        data: filteredData.map(item => item.Likelihood),
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Relevance',
+        data: filteredData.map(item => item.Relevance),
+        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+        borderColor: 'rgba(255, 206, 86, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  // Creating chart options
+  const chartOptions = {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  };
+
+  // Rendering the dashboard
+  return (
+    <div>
+      <h1>Data Visualization Dashboard</h1>
+      <div>
+        <label htmlFor="year">End Year:</label>
+        <input
+          type="number"
+          id="year"
+          value={year}
+          onChange={e => setYear(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="topics">Topics:</label>
+        <input
+          type="text"
+          id="topics"
+          value={topics}
+          onChange={e => setTopics(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="sector">Sector:</label>
+        <input
+          type="text"
+          id="sector"
+          value={sector}
+          onChange={e => setSector(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="region">Region:</label>
+        <input
+          type="text"
+          id="region"
+          value={region}
+          onChange={e => setRegion(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="pest">PEST:</label>
+        <input
+          type="text"
+          id="pest"
+          value={pest}
+          onChange={e => setPest(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="source">Source:</label>
+        <input
+          type="text"
+          id="source"
+          value={source}
+          onChange={e => setSource(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="swot">SWOT:</label>
+        <input
+          type="text"
+          id="swot"
+          value={swot}
+          onChange={e => setSwot(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="country">Country:</label>
+        <input
+          type="text"
+          id="country"
+          value={country}
+          onChange={e => setCountry(e.target.value)}
+
+
+
+
+
+
+
+
+
+          
+
+          // Import required libraries
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+// Create an instance of Express
+const app = express();
+
+// Use middleware
+app.use(bodyParser.json());
+app.use(cors());
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/mydatabase', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
+
+// Define a schema for the data
+const dataSchema = new mongoose.Schema({
+    end_year: String,
+    intensity: Number,
+    sector: String,
+    topic: String,
+    insight: String,
+    url: String,
+    region: String,
+    start_year: String,
+    impact: String,
+    added: String,
+    published: String,
+    country: String,
+    relevance: Number,
+    pestle: String,
+    source: String,
+    title: String,
+    likelihood: Number
+});
+
+// Create a model for the data
+const Data = mongoose.model('Data', dataSchema);
+
+// Create an API endpoint to get data from MongoDB
+app.get('/data', async (req, res) => {
+    const data = await Data.find();
+    res.json(data);
+});
+
+// Start the server
+app.listen(3000, () => console.log('Server started on port 3000'));
+
